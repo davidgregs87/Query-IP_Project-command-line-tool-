@@ -10,30 +10,30 @@ class setUp():
     def set_up(self):
         # Removing old files
         if detect_system() == "ubuntu":
-            os.system("sudo rm -rf /usr/bin/query-ip")
-            os.system("sudo rm -rf /usr/bin/query")
+            os.system("sudo rm -rf /usr/bin/query-ip.py")
+            os.system("sudo rm -rf /usr/bin/query1.py")
             os.system("sudo rm -rf /usr/share/Query-IP")
         elif detect_system() == "termux":
             os.system("rm -rf /data/data/com.termux/files/usr/share/Query-IP")
-            os.system("rm -rf /data/data/com.termux/files/usr/bin/query-ip")
-            os.system("rm -rf /data/data/com.termux/files/usr/bin/query")
+            os.system("rm -rf /data/data/com.termux/files/usr/bin/query-ip.py")
+            os.system("rm -rf /data/data/com.termux/files/usr/bin/query1.py")
         else:
-            os.system("sudo rm -rf /usr/bin/query-ip")
-            os.system("sudo rm -rf /usr/bin/query")
+            os.system("sudo rm -rf /usr/bin/query-ip.py")
+            os.system("sudo rm -rf /usr/bin/query1.py")
             os.system("sudo rm -rf /usr/share/Query-IP")
         # Adding bin file
         if detect_system() == "ubuntu":
-            os.system("sudo mv -v model/query-ip /usr/bin/")
-            os.system("sudo mv -v model/query /usr/bin/")
-            os.system("sudo chmod +x /usr/bin/query-ip /usr/bin/query")
+            os.system("sudo mv -v model/query-ip.py /usr/bin/")
+            os.system("sudo mv -v model/query1.py /usr/bin/")
+            os.system("sudo chmod +x /usr/bin/query-ip.py /usr/bin/query1.py")
         elif detect_system() == "termux":
-            os.system("mv -v model/query-ip /data/data/com.termux/files/usr/bin/")
-            os.system("mv -v model/query /data/data/com.termux/files/usr/bin/")
-            os.system("chmod +x /data/data/com.termux/files/usr/bin/query-ip /data/data/com.termux/files/usr/bin/query")
+            os.system("mv -v model/query-ip.py /data/data/com.termux/files/usr/bin/")
+            os.system("mv -v model/query1.py /data/data/com.termux/files/usr/bin/")
+            os.system("chmod +x /data/data/com.termux/files/usr/bin/query-ip.py /data/data/com.termux/files/usr/bin/query1.py")
         else:
-            os.system("mv -v model/query-ip /usr/bin/")
-            os.system("mv -v model/query /usr/bin/")
-            os.system("chmod +x /usr/bin/query-ip /usr/bin/query")
+            os.system("mv -v model/query-ip.py /usr/bin/")
+            os.system("mv -v model/query1.py /usr/bin/")
+            os.system("chmod +x /usr/bin/query-ip.py /usr/bin/query1.py")
         # Copy files from IP-Tracer to .IP-Tracer directory
         if detect_system() == "ubuntu":
             os.system("sudo mkdir /usr/share/Query-IP/")
