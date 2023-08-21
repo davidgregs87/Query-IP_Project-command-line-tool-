@@ -24,5 +24,5 @@ if not os.path.exists("/usr/bin"):
         os.system("pkg upgrade -y")
         os.system("pkg install python3")
 
-os.system("python3 setup.py")
+os.system("python3 model/setup.py")
 sys.exit()
