@@ -1,32 +1,28 @@
 #!/usr/bin/python3
 """setup module"""
-from systemSetup import detect_system
-
 import os
+import colorama
 from colorama import Fore
+from systemSetup import detect_system
 
 class setUp():
     """An setup class"""
     def set_up(self):
-        # Removing old files
-        if detect_system() == "ubuntu":
-            os.system("sudo rm -rf /usr/bin/query-ip.py")
-            os.system("sudo rm -rf /usr/bin/query1.py")
-            os.system("sudo rm -rf /usr/share/Query-IP")
-        elif detect_system() == "termux":
-            os.system("rm -rf /data/data/com.termux/files/usr/share/Query-IP")
-            os.system("rm -rf /data/data/com.termux/files/usr/bin/query-ip.py")
-            os.system("rm -rf /data/data/com.termux/files/usr/bin/query1.py")
+    # Removing old files
+        system = detect_system()
+        if system == "ubuntu":
+            os.system("sudo rm -rf /usr/bin/query-ip.py /usr/bin/query1.py /usr/share/Query-IP")
+        elif system == "termux":
+            os.system("rm -rf /data/data/com.termux/files/usr/share/Query-IP /data/data/com.termux/files/usr/bin/query-ip.py /data/data/com.termux/files/usr/bin/query1.py")
         else:
-            os.system("sudo rm -rf /usr/bin/query-ip.py")
-            os.system("sudo rm -rf /usr/bin/query1.py")
-            os.system("sudo rm -rf /usr/share/Query-IP")
+            os.system("sudo rm -rf /usr/bin/query-ip.py /usr/bin/query1.py /usr/share/Query-IP")
+    
         # Adding bin file
-        if detect_system() == "ubuntu":
+        if system == "ubuntu":
             os.system("sudo mv -v model/query-ip.py /usr/bin/")
             os.system("sudo mv -v model/query1.py /usr/bin/")
             os.system("sudo chmod +x /usr/bin/query-ip.py /usr/bin/query1.py")
-        elif detect_system() == "termux":
+        elif system == "termux":
             os.system("mv -v model/query-ip.py /data/data/com.termux/files/usr/bin/")
             os.system("mv -v model/query1.py /data/data/com.termux/files/usr/bin/")
             os.system("chmod +x /data/data/com.termux/files/usr/bin/query-ip.py /data/data/com.termux/files/usr/bin/query1.py")
@@ -34,22 +30,21 @@ class setUp():
             os.system("mv -v model/query-ip.py /usr/bin/")
             os.system("mv -v model/query1.py /usr/bin/")
             os.system("chmod +x /usr/bin/query-ip.py /usr/bin/query1.py")
-        # Copy files from IP-Tracer to .IP-Tracer directory
-        if detect_system() == "ubuntu":
+    
+        # Copy files from Query-IP to target directory
+        if system == "ubuntu":
             os.system("sudo mkdir /usr/share/Query-IP/")
-            os.system("sudo chmod +x * *.* .*.*")
-            os.system("sudo mv -v * *.* .*.* /usr/share/Query-IP/")
-        elif detect_system() == "termux":
+            os.system("sudo cp -rv model/* /usr/share/Query-IP/")
+        elif system == "termux":
             os.system("mkdir /data/data/com.termux/files/usr/share/Query-IP")
-            os.system("chmod +x * *.* .*.*")
-            os.system("mv -v * *.* .*.* /data/data/com.termux/files/usr/share/Query-IP/")
+            os.system("cp -rv model/* /data/data/com.termux/files/usr/share/Query-IP/")
         else:
             os.system("mkdir /usr/share/Query-IP")
-            os.system("chmod +x * *.* .*.*")
-            os.system("mv -v * *.* .*.* /usr/share/Query-IP/")
-        # Removing IP-Tracer directory
+            os.system("cp -rv model/* /usr/share/Query-IP/")
+    
+        # Removing Query-IP directory
         os.system("cd .. && rm -rf Query-IP")
-    def logo():
+    def logo(self):
         os.system("clear")
         print(Fore.CYAN + "\n\n")
         print(Fore.YELLOW + "                             ----------------------------------------------------------------")
