@@ -1,0 +1,11 @@
+# Tool Name :- Query-IP
+# Author :- David Gregs
+# Date :- 23/08/2023
+# My first portfolio project @alx_africa
+if [ -d /data/data/com.termux/files/usr/share ];then
+  cd /data/data/com.termux/files/usr/share/Query-IP
+  exec bash trace $@
+elif [ -d /usr/share ];then
+  cd /usr/share/Query-IP
+  exec bash trace $@
+fi
