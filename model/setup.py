@@ -61,7 +61,7 @@ class setUp():
         print("                                  " + Fore.CYAN + "------------------------------------------------")
         print("\n\n")
 
-        if os.path.exists("/usr/bin/query-ip") or os.path.exists("/data/data/com.termux/files/usr/bin/query-ip"):
+        if os.path.exists("/usr/bin/query") or os.path.exists("/data/data/com.termux/files/usr/bin/query"):
             print("                                          " + Fore.YELLOW + "Query-IP successfully installed!\n")
             print("         " + Fore.YELLOW + "                    Help/Usage")
             print("         " + Fore.YELLOW + "                     _________________________________________________________________")
