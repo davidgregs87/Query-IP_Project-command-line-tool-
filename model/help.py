@@ -2,7 +2,6 @@
 
 from colorama import Fore
 import os
-from Query_IP import menu
 
 def help():
     """A quick start help with Query-IP"""
@@ -31,9 +30,5 @@ def help():
     print("         " + Fore.YELLOW + "                    |_________________________________|_______________________________|\n")
     print("         " + Fore.YELLOW + "                    Note: Dont try to make query for over 150 times, you could get banned")
 
-
-prompt = "\033[00m"
-print(prompt, end="")
-getact = input(' Query-IP >> ')
-menu()
+help()
 
