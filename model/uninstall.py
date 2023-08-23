@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Uninstaller module"""
-from model.systemSetup import detect_system
+from systemSetup import detect_system
 
 import os
 from colorama import Fore
