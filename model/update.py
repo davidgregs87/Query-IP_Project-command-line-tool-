@@ -1,8 +1,5 @@
 #!/usr/bin/python3
 """A module for updating our tool(Query-IP)"""
-from model.help import help
-from model.querym import queryM
-from model.queryP import queryP
 import os
 from colorama import Fore
 import time

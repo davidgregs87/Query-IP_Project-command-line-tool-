@@ -4,7 +4,6 @@
 import requests
 from colorama import Fore, Style
 import os
-from Query_IP import menu
 
 def queryM():
     """A function that takes no argument but returns the ip address that calls this function"""
@@ -47,7 +46,4 @@ def queryM():
         print(Fore.CYAN + "Check your Network connection\n")
         print(Fore.CYAN + "If you are online please check your IP Address!!")
     
-    prompt = "\033[00m"
-    print(prompt, end="")
-    getact = input(' Query-IP >> ')
-    menu()
+queryM()
