@@ -4,7 +4,7 @@
 import requests
 from colorama import Fore, Style
 import os
-from model.Query_IP import menu
+from Query_IP import menu
 
 def queryM():
     """A function that takes no argument but returns the ip address that calls this function"""

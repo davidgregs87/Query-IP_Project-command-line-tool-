@@ -2,7 +2,7 @@
 
 from colorama import Fore
 import os
-from model.Query_IP import menu
+from Query_IP import menu
 
 def help():
     """A quick start help with Query-IP"""
