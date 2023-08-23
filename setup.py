@@ -103,4 +103,5 @@ class setUp():
 
 
 setUP = setUp()
+setUP.set_up()
 setUP.logo()
