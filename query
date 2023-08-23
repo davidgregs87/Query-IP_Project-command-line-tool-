@@ -36,6 +36,8 @@ case "$1" in
   ;;
   -h)
     python3 model/help.py
+    exit
+  ;;
   *)
     echo "Usage: query [command]... [arguments]..."
     echo " Commands:"
