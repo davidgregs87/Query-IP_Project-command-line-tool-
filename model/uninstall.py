@@ -9,19 +9,19 @@ class Uninstaller():
     """An uninstaller class"""
     def uninstaller(self):
         if detect_system() == "ubuntu":
-            os.system("sudo rm -rf /usr/bin/query-ip")
+            os.system("sudo rm -rf /usr/bin/query_ip")
             os.system("sudo rm -rf /usr/bin/query")
             os.system("sudo rm -rf /usr/share/Query-IP")
         elif detect_system() == "termux":
             os.system("rm -rf /data/data/com.termux/files/usr/share/Query-IP")
-            os.system("rm -rf /data/data/com.termux/files/usr/bin/query-ip")
+            os.system("rm -rf /data/data/com.termux/files/usr/bin/query_ip")
             os.system("rm -rf /data/data/com.termux/files/usr/bin/query")
         elif detect_system() == "windows":
             os.system("wmic product where name='Query-IP' call uninstall")
             os.system("wmic product where name='query-ip' call uninstall")
             os.system("wmic product where name='query' call uninstall")
         elif detect_system() == 'macOS':
-            os.system("sudo rm -rf /usr/bin/query-ip")
+            os.system("sudo rm -rf /usr/bin/query_ip")
             os.system("sudo rm -rf /usr/bin/query")
             os.system("sudo rm -rf /usr/share/Query-IP")
     def display_logo(self):
@@ -40,7 +40,7 @@ class Uninstaller():
         print("                                  " + Fore.CYAN + "------------------------------------------------")
         print("\n\n")
 
-        if os.path.exists("/usr/bin/query-ip") or os.path.exists("/data/data/com.termux/files/usr/bin/query-ip") or os.path.exists("C:\\Program Files\\query-ip"):
+        if os.path.exists("/usr/bin/query") or os.path.exists("/data/data/com.termux/files/usr/bin/query"):
             print("Sorry Query-IP couldn't uninstall!")
         else:
             print("Query-IP unistalled succussfully!")

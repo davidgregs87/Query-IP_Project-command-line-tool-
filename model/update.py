@@ -29,7 +29,7 @@ def update():
     time.sleep(1)
     os.system("cd ~/ && git clone https://github.com/davidgregs87/Query-IP_Project.git")
     os.system("cd ~/ && sudo git clone https://github.com/davidgregs87/Query-IP_Project.git")
-    os.system("cd ~/Query-IP && sh install")
+    os.system("cd ~/Query-IP_Project && sh install")
     get_logo()
     print(Fore.CYAN + "                             ----------------------" + Fore.YELLOW + "Query-IP updated successfully!" + Fore.CYAN + "------------------")
     time.sleep(1)
