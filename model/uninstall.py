@@ -4,6 +4,7 @@ from systemSetup import detect_system
 
 import os
 from colorama import Fore
+from model.center import center_text
 
 class Uninstaller():
     """An uninstaller class"""
@@ -26,25 +27,30 @@ class Uninstaller():
             os.system("sudo rm -rf /usr/share/Query-IP")
     def display_logo(self):
         os.system("clear")
-        print(Fore.CYAN + "\n\n")
-        print(Fore.YELLOW + "                             ----------------------------------------------------------------")
-        print("                                  " + Fore.CYAN + " ____   _   _   ____   ____  __   __       _   ____ ")
-        print("                                  " + Fore.CYAN + "/ __ \\ | | | | / __ \\ |  __| \\ \_/ /      | | |  __ \ ")
-        print("                                 " + Fore.CYAN + "| |  | || | | || |__| || |     \\___/       | | | |__| |")
-        print("                                 " + Fore.CYAN + "| |  | || | | ||  ____|| |      | |" + Fore.YELLOW + "   ~~" + Fore.CYAN + "   | | |  ____| ")
-        print("                                 " + Fore.CYAN + "| |__| |\ \_/ /| |____ | |      | |        | | | |")
-        print("                                  " + Fore.CYAN + "\\___\\ \\ \\___/  \\_____||_|      |_|        |_| |_|")
-        print("                                  " + Fore.CYAN + "     \\_\\")
-        print(Fore.YELLOW + "                             ----------------------------------------------------------------")
-        print("                                  " + Fore.CYAN + "-------------------------------------------------------")
-        print("                                  " + Fore.CYAN + "------------------" + Fore.YELLOW +  "<Query your IP address>" + Fore.CYAN +   "--------------")
-        print("                                  " + Fore.CYAN + "------------------------------------------------")
-        print("\n\n")
+        logo_lines = [
+        Fore.CYAN + "\n\n",
+        Fore.YELLOW + "    ----------------------------------------------------------------",
+        Fore.CYAN + "    " + " ____   _   _   ____   ____  __   __       _   ____ ",
+        Fore.CYAN + "     " + "/ __ \\ | | | | / __ \\ |  __| \\ \_/ /      | | |  __ \ ",
+        Fore.CYAN + "     " + "| |  | || | | || |__| || |     \\___/       | | | |__| |",
+        Fore.CYAN + "                " + "| |  | || | | ||  ____|| |      | |" + Fore.YELLOW + "   ~~" + Fore.CYAN + "   | | |  ____| ",
+        Fore.CYAN +  "" + "| |__| |\ \_/ /| |____ | |      | |        | | | |",
+        Fore.CYAN +  " " + "\\___\\ \\ \\___/  \\_____||_|      |_|        |_| |_|",
+        Fore.YELLOW + "    ----------------------------------------------------------------",
+        Fore.CYAN +  "             " +  "----------" + Fore.YELLOW +  "A more intuitive way to lookup your IP adresses" + Fore.CYAN +   "-------------",
+        Fore.CYAN + "                " +  "---------------" + Fore.YELLOW +  "<Query your IP address>" + Fore.CYAN +   "-------------------",
+        Fore.CYAN + "                " +  "---------------" + Fore.YELLOW +  "Tool Name"  + "    " + Fore.CYAN + "Query-IP ----------------",
+        Fore.CYAN + "                 " +  "---------------" + Fore.YELLOW +  "Author"  + "    " + Fore.CYAN + "David Gregs ---------------",
+        Fore.CYAN + "                " +  "--------------" + Fore.YELLOW +  "Project"  + "    " + Fore.CYAN + "@alx Portfolio Project ----",
+        "\n\n",
+        ]
+        centered_logo = "\n".join(center_text(line) for line in logo_lines)
+        print(centered_logo)
 
         if os.path.exists("/usr/bin/query") or os.path.exists("/data/data/com.termux/files/usr/bin/query"):
-            print("Sorry Query-IP couldn't uninstall!")
+            print(Fore.RED + "Sorry Query-IP couldn't uninstall!")
         else:
-            print("Query-IP unistalled succussfully!")
+            print(Fore.YELLOW + "Query-IP unistalled succussfully!")
 
 uninstall = Uninstaller()
 uninstall.uninstaller()

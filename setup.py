@@ -82,7 +82,7 @@ class setUp():
             Fore.YELLOW + "_________________________________________________________________",
             Fore.YELLOW + "                     |" + Fore.CYAN + "           Command" + Fore.YELLOW + "        |" + Fore.CYAN + "           Use" + Fore.YELLOW + "                        |",      
             Fore.YELLOW + "|__________________________|______________________________________|",
-            Fore.YELLOW + "                     |" + Fore.CYAN + "      Query -l" + Fore.YELLOW + "     |" + Fore.CYAN + "  Query the IP address of the local machine" + Fore.YELLOW + "  |", 
+            Fore.YELLOW + "                     |" + Fore.CYAN + "      Query -m" + Fore.YELLOW + "     |" + Fore.CYAN + "  Query the IP address of the local machine" + Fore.YELLOW + "  |", 
             Fore.YELLOW + "|___________________|_____________________________________________|",
             Fore.YELLOW + "                     |" + Fore.CYAN + "         Query -t <target_ip>" + Fore.YELLOW + "  |" + Fore.CYAN + " Query the IP of a target machine" + Fore.YELLOW + "|",
             Fore.YELLOW + "|_______________________________|_________________________________|",
@@ -94,7 +94,7 @@ class setUp():
             print(centered_logo)       
         else:
             lines = [
-            Fore.YELLOW + "Sorry Query-IP could not be installed",
+            Fore.RED + "Sorry Query-IP could not be installed",
             ]
             centered_logo = "\n".join(setUp.center_text(line) for line in lines)
             print(centered_logo)
