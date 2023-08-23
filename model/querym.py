@@ -4,6 +4,7 @@
 import requests
 from colorama import Fore, Style
 import os
+from center import center_text
 
 def queryM():
     """A function that takes no argument but returns the ip address that calls this function"""
@@ -28,19 +29,23 @@ def queryM():
             print("                                  " + Fore.CYAN + "------------------------------------------------")
             print("\n\n")
 
-            print(Fore.YELLOW + "IP Address" +" "+ Fore.CYAN + f"{data['query']}")
-            print(Fore.YELLOW + "Country" + " "+ Fore.CYAN + f"{data['country']}")
-            print(Fore.YELLOW + "CountryCode" + " " + Fore.CYAN + f"{data['countryCode']}")
-            print(Fore.YELLOW + "Region" + " " + Fore.CYAN + f"{data['region']}")
-            print(Fore.YELLOW + "RegionName" + " " + Fore.CYAN + f"{data['regionName']}")
-            print(Fore.YELLOW + "City"+ " " + Fore.CYAN + f"{data['city']}")
-            print(Fore.YELLOW + "ZipCode" + " " +Fore.CYAN + f"{data['zip']}")
-            print(Fore.YELLOW + "Lattitude" + " " + Fore.CYAN + f"{data['lat']}")
-            print(Fore.YELLOW + "Longitude" + " " + Fore.CYAN + f"{data['lon']}")
-            print(Fore.YELLOW + "TimeZone" + " " + Fore.CYAN + f"{data['timezone']}")
-            print(Fore.YELLOW + "ISP" + " " + Fore.CYAN + f"{data['isp']}")
-            print(Fore.YELLOW + "Organization" + " " + Fore.CYAN + f"{data['org']}")
-            print(Fore.YELLOW + "ASN" + " " + Fore.CYAN + f"{data['as']}")
+            lines = [
+            Fore.YELLOW + "IP Address" +" "+ Fore.CYAN + f"{data['query']}\n",
+            Fore.YELLOW + "Country" + " "+ Fore.CYAN + f"{data['country']}\n",
+            Fore.YELLOW + "CountryCode" + " " + Fore.CYAN + f"{data['countryCode']}\n",
+            Fore.YELLOW + "Region" + " " + Fore.CYAN + f"{data['region']}\n",
+            Fore.YELLOW + "RegionName" + " " + Fore.CYAN + f"{data['regionName']}\n",
+            Fore.YELLOW + "City"+ " " + Fore.CYAN + f"{data['city']}\n",
+            Fore.YELLOW + "ZipCode" + " " +Fore.CYAN + f"{data['zip']}\n",
+            Fore.YELLOW + "Lattitude" + " " + Fore.CYAN + f"{data['lat']}\n",
+            Fore.YELLOW + "Longitude" + " " + Fore.CYAN + f"{data['lon']}\n",
+            Fore.YELLOW + "TimeZone" + " " + Fore.CYAN + f"{data['timezone']}\n",
+            Fore.YELLOW + "ISP" + " " + Fore.CYAN + f"{data['isp']}\n",
+            Fore.YELLOW + "Organization" + " " + Fore.CYAN + f"{data['org']}\n",
+            Fore.YELLOW + "ASN" + " " + Fore.CYAN + f"{data['as']}\n"
+            ]
+            centered_logo = "\n".join(center_text(line) for line in lines)
+            print(centered_logo)
     except requests.exceptions.ConnectionError:
         print("Connection error. Check your network.")
     except requests.exceptions.Timeout:

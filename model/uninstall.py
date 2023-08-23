@@ -25,6 +25,7 @@ class Uninstaller():
             os.system("sudo rm -rf /usr/bin/query")
             os.system("sudo rm -rf /usr/share/Query-IP")
     def display_logo(self):
+        os.system("clear")
         print(Fore.CYAN + "\n\n")
         print(Fore.YELLOW + "                             ----------------------------------------------------------------")
         print("                                  " + Fore.CYAN + " ____   _   _   ____   ____  __   __       _   ____ ")

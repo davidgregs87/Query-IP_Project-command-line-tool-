@@ -24,14 +24,17 @@ def get_logo():
 
 def update():
     """A function that will help us in updating our tool when there is update"""
-    get_logo()
-    print(Fore.CYAN + "                             ----------------------" + Fore.YELLOW + "Updating Query-IP...." + Fore.CYAN + "------------------")
-    time.sleep(1)
-    os.system("cd ~/ && git clone https://github.com/davidgregs87/Query-IP_Project.git")
-    os.system("cd ~/ && sudo git clone https://github.com/davidgregs87/Query-IP_Project.git")
-    os.system("cd ~/Query-IP_Project && sh install")
-    get_logo()
-    print(Fore.CYAN + "                             ----------------------" + Fore.YELLOW + "Query-IP updated successfully!" + Fore.CYAN + "------------------")
-    time.sleep(1)
+    try:
+        get_logo()
+        print(Fore.CYAN + "                             ----------------------" + Fore.YELLOW + "Updating Query-IP...." + Fore.CYAN + "------------------")
+        time.sleep(1)
+        os.system("cd ~/ && git clone https://github.com/davidgregs87/Query-IP_Project.git")
+        os.system("cd ~/ && sudo git clone https://github.com/davidgregs87/Query-IP_Project.git")
+        os.system("cd ~/Query-IP_Project && sh install")
+        get_logo()
+        print(Fore.CYAN + "                             ----------------------" + Fore.YELLOW + "Query-IP updated successfully!" + Fore.CYAN + "------------------")
+        time.sleep(1)
+    except ConnectionError:
+        print("Connection error. Check your network!")
 
 update()

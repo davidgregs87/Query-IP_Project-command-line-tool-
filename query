@@ -30,11 +30,11 @@ case "$1" in
     python3 model/Query_IP.py
     exit
   ;;
-  -rm)
+  --rm)
     python3 model/uninstall.py
     exit
   ;;
-  -h)
+  --help)
     python3 model/help.py
     exit
   ;;
@@ -43,8 +43,9 @@ case "$1" in
     echo " Commands:"
     echo " -t <target_ip>      to query target ip."
     echo " -m                  to query your own ip."
-    echo " -h                  to show help."
-    echo " -u                  to update ip-tracer."
-    echo " update              to update ip-tracer."
-    echo " start               to start ip-tracer menu."
+    echo " --help                  to show help."
+    echo " -u                  to update Query-IP."
+    echo " update              to update Query-IP.."
+    echo " start               to start Query-IP. menu."
+    echo " --rm                to uninstall Query-IP tool."
 esac
