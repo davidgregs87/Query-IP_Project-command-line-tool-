@@ -5,7 +5,7 @@ import requests
 import sys
 from colorama import Fore, Style
 import os
-from Query_IP import menu  
+from model.Query_IP import menu  
 
 def queryP():
     """A function that takes one argument(ip-address) and query it using an IP Geolocation Api
