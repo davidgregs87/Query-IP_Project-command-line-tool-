@@ -33,17 +33,21 @@ def update():
     """A function that will help us in updating our tool when there is update"""
     try:
         get_logo()
-        print(Fore.CYAN + "                             ----------------------" + Fore.YELLOW + "Updating Query-IP...." + Fore.CYAN + "------------------")
+        new = [Fore.CYAN + "----------------------" + Fore.YELLOW + "Updating Query-IP...." + Fore.CYAN + "------------------"]
+        centered_logo = "\n".join(center_text(line) for line in new)
+        print(centered_logo)
         time.sleep(1)
         clone_status = os.system("cd ~/ && git clone https://github.com/davidgregs87/Query-IP_Project.git")
         sudo_clone_status = os.system("cd ~/ && sudo git clone https://github.com/davidgregs87/Query-IP_Project.git")
         install_status = os.system("cd ~/Query-IP_Project && sh install")
         if clone_status != 0 or sudo_clone_status != 0 or install_status != 0:
             get_logo()
-            print(Fore.RED + "Couldn't update Query-IP tool, please check your network connection")
+            print(Fore.YELLOW + "Couldn't update Query-IP tool, because you already have the latest version")
         else:
             get_logo()
-            print(Fore.CYAN + "                             ----------------------" + Fore.YELLOW + "Query-IP updated successfully!" + Fore.CYAN + "------------------")
+            new_line = [Fore.CYAN + "----------------------" + Fore.YELLOW + "Query-IP updated successfully!" + Fore.CYAN + "------------------"]
+            centered = "\n".join(center_text(line) for line in new_line)
+            print(centered)
         time.sleep(1)
     except KeyboardInterrupt:
         print(Fore.RED + "Process interrupted by user")
