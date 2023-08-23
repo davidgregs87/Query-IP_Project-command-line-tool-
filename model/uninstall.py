@@ -48,9 +48,13 @@ class Uninstaller():
         print(centered_logo)
 
         if os.path.exists("/usr/bin/query") or os.path.exists("/data/data/com.termux/files/usr/bin/query"):
-            print(Fore.RED + "Sorry Query-IP couldn't uninstall!")
+            new = [Fore.RED + "Sorry Query-IP couldn't uninstall!"]
+            centered_logo = "\n".join(center_text(line) for line in new)
+            print(centered_logo)
         else:
-            print(Fore.YELLOW + "Query-IP unistalled succussfully!")
+            new_line = [Fore.YELLOW + "Query-IP unistalled succussfully!"]
+            centered = "\n".join(center_text(line) for line in new_line)
+            print(centered)
 
 uninstall = Uninstaller()
 uninstall.uninstaller()
