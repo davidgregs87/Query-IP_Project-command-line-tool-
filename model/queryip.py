@@ -54,17 +54,17 @@ def query(ip):
         centered_logo = "\n".join(center_text(line) for line in lines)
         print(centered_logo)
     except requests.exceptions.ConnectionError:
-        print(Fore.RED + "Connection error. Check your network.")
+        print(Fore.RED + "Connection error. Check your network.\n")
     except requests.exceptions.Timeout:
-        print(Fore.RED + "Request timed out. Try again later.")
+        print(Fore.RED + "Request timed out. Try again later.\n")
     except requests.exceptions.HTTPError as http_err:
-        print(Fore.RED + f"HTTP error occurred: {http_err}")
+        print(Fore.RED + f"HTTP error occurred: {http_err}\n")
     except requests.exceptions.RequestException as req_err:
-        print(Fore.RED + f"An error occurred: {req_err}")
+        print(Fore.RED + f"An error occurred: {req_err}\n")
 
 if __name__ == '__main__':
     if len (sys.argv) != 2:
-        print(Fore.RED + "Check the Usage on how to use this tool.")
+        print(Fore.RED + "Check the Usage on how to use this tool.\n")
     else:
         ip_addr = sys.argv[1]
         query(ip_addr)
