@@ -3,7 +3,7 @@
 import os
 import colorama
 from colorama import Fore
-from systemSetup import detect_system
+from model.systemSetup import detect_system
 
 class setUp():
     """An setup class"""
