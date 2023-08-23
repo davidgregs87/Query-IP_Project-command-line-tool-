@@ -4,7 +4,7 @@ from systemSetup import detect_system
 
 import os
 from colorama import Fore
-from model.center import center_text
+from center import center_text
 
 class Uninstaller():
     """An uninstaller class"""
