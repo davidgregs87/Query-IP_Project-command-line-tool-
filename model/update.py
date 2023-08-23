@@ -3,24 +3,31 @@
 import os
 from colorama import Fore
 import time
+from center import center_text 
+
 
 def get_logo():
     """Pulling up our logo"""
     os.system("clear")
-    print(Fore.CYAN + "\n\n")
-    print(Fore.YELLOW + "                             ----------------------------------------------------------------")
-    print("                                  " + Fore.CYAN + " ____   _   _   ____   ____  __   __       _   ____ ")
-    print("                                  " + Fore.CYAN + "/ __ \\ | | | | / __ \\ |  __| \\ \_/ /      | | |  __ \ ")
-    print("                                 " + Fore.CYAN + "| |  | || | | || |__| || |     \\___/       | | | |__| |")
-    print("                                 " + Fore.CYAN + "| |  | || | | ||  ____|| |      | |" + Fore.YELLOW + "   ~~" + Fore.CYAN + "   | | |  ____| ")
-    print("                                 " + Fore.CYAN + "| |__| |\ \_/ /| |____ | |      | |        | | | |")
-    print("                                  " + Fore.CYAN + "\\___\\ \\ \\___/  \\_____||_|      |_|        |_| |_|")
-    print("                                  " + Fore.CYAN + "     \\_\\")
-    print(Fore.YELLOW + "                             ----------------------------------------------------------------")
-    print("                                  " + Fore.CYAN + "-------------------------------------------------------")
-    print("                                  " + Fore.CYAN + "------------------" + Fore.YELLOW +  "<Query your IP address>" + Fore.CYAN +   "--------------")
-    print("                                  " + Fore.CYAN + "------------------------------------------------")
-    print("\n\n")
+    logo_lines = [
+    Fore.CYAN + "\n\n",
+    Fore.YELLOW + "    ----------------------------------------------------------------",
+    Fore.CYAN + "    " + " ____   _   _   ____   ____  __   __       _   ____ ",
+    Fore.CYAN + "     " + "/ __ \\ | | | | / __ \\ |  __| \\ \_/ /      | | |  __ \ ",
+    Fore.CYAN + "     " + "| |  | || | | || |__| || |     \\___/       | | | |__| |",
+    Fore.CYAN + "                " + "| |  | || | | ||  ____|| |      | |" + Fore.YELLOW + "   ~~" + Fore.CYAN + "   | | |  ____| ",
+    Fore.CYAN +  "" + "| |__| |\ \_/ /| |____ | |      | |        | | | |",
+    Fore.CYAN +  " " + "\\___\\ \\ \\___/  \\_____||_|      |_|        |_| |_|",
+    Fore.YELLOW + "    ----------------------------------------------------------------",
+    Fore.CYAN +  "             " +  "----------" + Fore.YELLOW +  "A more intuitive way to lookup your IP adresses" + Fore.CYAN +   "-------------",
+    Fore.CYAN + "                " +  "---------------" + Fore.YELLOW +  "<Query your IP address>" + Fore.CYAN +   "-------------------",
+    Fore.CYAN + "                " +  "---------------" + Fore.YELLOW +  "Tool Name"  + "    " + Fore.CYAN + "Query-IP ----------------",
+    Fore.CYAN + "                 " +  "---------------" + Fore.YELLOW +  "Author"  + "    " + Fore.CYAN + "David Gregs ---------------",
+    Fore.CYAN + "                " +  "--------------" + Fore.YELLOW +  "Project"  + "    " + Fore.CYAN + "@alx Portfolio Project ----",
+    "\n\n",
+    ]
+    centered_logo = "\n".join(center_text(line) for line in logo_lines)
+    print(centered_logo)
 
 def update():
     """A function that will help us in updating our tool when there is update"""
@@ -28,13 +35,17 @@ def update():
         get_logo()
         print(Fore.CYAN + "                             ----------------------" + Fore.YELLOW + "Updating Query-IP...." + Fore.CYAN + "------------------")
         time.sleep(1)
-        os.system("cd ~/ && git clone https://github.com/davidgregs87/Query-IP_Project.git")
-        os.system("cd ~/ && sudo git clone https://github.com/davidgregs87/Query-IP_Project.git")
-        os.system("cd ~/Query-IP_Project && sh install")
-        get_logo()
-        print(Fore.CYAN + "                             ----------------------" + Fore.YELLOW + "Query-IP updated successfully!" + Fore.CYAN + "------------------")
+        clone_status = os.system("cd ~/ && git clone https://github.com/davidgregs87/Query-IP_Project.git")
+        sudo_clone_status = os.system("cd ~/ && sudo git clone https://github.com/davidgregs87/Query-IP_Project.git")
+        install_status = os.system("cd ~/Query-IP_Project && sh install")
+        if clone_status != 0 or sudo_clone_status != 0 or install_status != 0:
+            get_logo()
+            print(Fore.RED + "Couldn't update Query-IP tool, please check your network connection")
+        else:
+            get_logo()
+            print(Fore.CYAN + "                             ----------------------" + Fore.YELLOW + "Query-IP updated successfully!" + Fore.CYAN + "------------------")
         time.sleep(1)
-    except ConnectionError:
-        print("Connection error. Check your network!")
+    except KeyboardInterrupt:
+        print(Fore.RED + "Process interrupted by user")
 
 update()
