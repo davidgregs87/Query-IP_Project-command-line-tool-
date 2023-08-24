@@ -8,10 +8,10 @@ As part of my portfolio project with @alx_africa i decided to build a simple com
 
 # About Query-IP
 
-Tool Name: Query-IP
-Author: David Gregs
-Date: 23/08/2023
-Project: @alx Portfolio project
+* Tool Name: Query-IP
+* Author: David Gregs
+* Date: 23/08/2023
+* Project: @alx Portfolio project
 
 # Getting Started
 
@@ -32,7 +32,7 @@ Boom! Query-IP has been installed.
 
 # Usage
 
-* You can use the command <query> to see the list of options available.
+* You can use the command "query" to see the list of options available.
 * To query the IP address of your local computer you can use the command <query -m>, this will display the result of the IP address of your local computer
 * To query any other IP address apart from your own(local computer), use the command "query -t <target ip>". An example is shown below;
 
@@ -49,5 +49,5 @@ Boom! Query-IP has been installed.
 
 This Project is still subject to code reviews and contributions from any persons, you can reach me through;
 
-email   <dev.dgregs7@gmail.com>
-twitter <www.twitter.com/gregs_david>
+* email   <dev.dgregs7@gmail.com>
+* twitter <www.twitter.com/gregs_david>
