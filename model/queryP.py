@@ -5,7 +5,7 @@ import requests
 import sys
 from colorama import Fore, Style
 import os
-from model.Query_IP import menu  
+ 
 
 def queryP():
     """A function that takes one argument(ip-address) and query it using an IP Geolocation Api
@@ -55,4 +55,5 @@ def queryP():
     prompt = Fore.CYAN
     print(prompt, end="")
     getact = input(' Query-IP >> ')
+    from Query_IP import menu 
     menu()

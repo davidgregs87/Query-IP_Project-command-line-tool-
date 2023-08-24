@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """Main script"""
-from model.help import help
-from model.querym import queryM
-from model.queryP import queryP
-from model.queryip import query
+from help import help
+from querym import queryM
+from queryip import query
 import os
 from colorama import Fore
 import time
